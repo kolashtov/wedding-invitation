@@ -1,0 +1,10 @@
+<div class="guestForm">
+  <%= label_tag 'name' %>
+  <%= text_field_tag 'names[]', guest ? guest.name : '', required: true %>
+  <%= label_tag 'meal' %>
+  <%= select_tag "meals[]", options_for_select([ "Мясо", "Рыба", "Трава"], guest ? guest.meal : "")  %>
+  <%= label_tag 'drink' %>
+  <%= select_tag "drinks[][]", options_for_select([ "Вино", "Водка", "Пиво"], guest ? guest.drink : ""), {:multiple => true} %>
+  <a href="javascript:void(0)" class="delete_guest">[X]</a>
+</div>
+

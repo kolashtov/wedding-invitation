@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  invitation_id: 
+  meal: MyString
+  drink: MyString
+
+two:
+  name: MyString
+  invitation_id: 
+  meal: MyString
+  drink: MyString

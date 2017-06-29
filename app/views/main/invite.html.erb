@@ -1,0 +1,33 @@
+<script>
+$(document).ready(function(){
+  $("#add_new_guest").click(function(){
+    $("#guestSet").append($("#new_guest_form").html()).show();
+  });
+  $(".delete_guest").click(function(){
+    $(this).parent().remove();
+  });
+});
+
+</script>
+
+<h1>Здравствуйте, <%= @invite.name %>!</h1>
+
+Мы вас пригласили, бла-бла-бла. Нам очень важно понимать сколько вас будет и что вы будете кушать, поэтому заполните форму ниже:
+
+<%= form_for @invite, :url => "/invite/#{@invite.inviteid}/approve.php", :method => :post do |f| %>
+<div id="guestSet">
+<% @invite.guests.each do |guest| %>
+  <%= render partial: "guest_form", locals: {guest: guest}  %>
+<% end %>
+</div>
+
+<a href="javascript:;" id="add_new_guest">Вписать еще одного пассажира</a>
+
+<div class="actions">
+  <%= f.submit %>
+</div>
+<% end %>
+
+<div style="display: none;" id="new_guest_form">
+  <%= render partial: "guest_form", locals: {guest: false} %>
+</div>
